@@ -1,0 +1,8 @@
+./
+../
+.idea/
+.git/
+
+# system ignore
+.DS_Store
+Thumbs.db

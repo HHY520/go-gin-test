@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello</title>
+</head>
+<body>
+    <h2>struct 结构体</h2>
+    <p>姓名：{{.user.Name}}</p>
+    <p>性别：{{.user.Gender}}</p>
+    <p>年龄：{{.user.Age}}</p>
+    <h2>map 字典</h2>
+    <p>姓名：{{.myMap.name}}</p>
+    <p>性别：{{.myMap.gender}}</p>
+    <p>年龄：{{.myMap.age}}</p>
+    <h2>定义变量</h2>
+    <p>{{$v1 := 100}}</p>
+    <p>{{$age := .user.Age}}</p>
+    <p>{{$v1}}</p>
+    <p>{{$age}}</p>
+    <h2>移除空格</h2>
+    {{$name := " 你好 "}}
+    <p>{{- $name -}}</p>
+    <h2>条件判断</h2>
+    {{ if $v1 }}
+    <p>{{ $v1 }} 有值<p>
+    {{ else }}
+    <p>{{ $v1 }} 没有值<p>
+    {{ end }}
+    <h2>range 语句</h2>
+    {{range $index,$hobby := .hobbyList}}
+    <p>{{ $index }} - {{$hobby}}</p>
+    {{else}}
+    <p>空 List</p>
+    {{end}}
+    <h2>with 语句,局部作用域</h2>
+    {{with .user}}
+    <p>姓名：{{.Name}}</p>
+    <p>性别：{{.Gender}}</p>
+    <p>年龄：{{.Age}}</p>
+    {{else}}
+    <p>空变量</p>
+    {{end}}
+</body>
+</html>
